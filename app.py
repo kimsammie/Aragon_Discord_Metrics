@@ -84,7 +84,7 @@ def write():
 		channel_num = '672466989767458861'
 	elif selection == 'Option 2: Intro':
 		channel_num = '684539869502111755'
-	else selection == 'Option 3: Questions':
+	elif selection == 'Option 3: Questions':
 		channel_num = '694844628586856469'
 		# st.sidebar.write('Option 1')
 		# var1 = st.sidebar.number_input('Enter the number of top pairs (max 50)', max_value = 50)
