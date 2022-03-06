@@ -13,8 +13,9 @@ statistics
 xlrd
 bs4
 requests
+json
 datetime
+re
 gensim
 spacy
-stopwords
 nltk
