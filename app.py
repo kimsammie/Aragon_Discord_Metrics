@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import json
+import requests
 import nltk
 from nltk.corpus import stopwords
 nltk.download('stopwords')
