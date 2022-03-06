@@ -3,6 +3,7 @@ import pandas as pd
 import json
 import requests
 import nltk
+import re
 from nltk.corpus import stopwords
 nltk.download('stopwords')
 
