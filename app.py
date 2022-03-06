@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import nltk
 from nltk.corpus import stopwords
 nltk.download('stopwords')
 
@@ -22,7 +23,6 @@ def write():
 	st.markdown(
 	"""
 	<br><br/>
-	# **PLEASE CHOOSE A PAIR OF WHITEPAPERS YOU WANT TO EXAMINE FROM THE SIDE BAR AND SEE THE RESULTS BELOW**
 	**PLEASE SELECT THE START DATE OF THE WEEK FROM THE SIDE BAR**
 	"""
 	, unsafe_allow_html=True)
