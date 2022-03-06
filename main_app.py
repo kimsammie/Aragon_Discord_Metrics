@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import app
-import upload
+
 
 st.set_page_config(layout="wide")
 
