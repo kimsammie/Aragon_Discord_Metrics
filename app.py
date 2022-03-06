@@ -1,5 +1,7 @@
 import streamlit as st
 import pandas as pd
+from nltk.corpus import stopwords
+nltk.download('stopwords')
 
 # st.set_page_config(layout="wide")
 
@@ -115,7 +117,7 @@ def write():
 	df = df.reset_index(drop=True)  # if not set to a variable it won't reset
 
 	df['timestamp'] = df['timestamp'].dt.date
-	start_date = pd.to_datetime(date_ofweek).date()
+	start_date = pd.to_datetime('2022-02-21').date()
 	end_date = pd.to_datetime('2022-02-27').date()
 	one_week = (df['timestamp'] > start_date) & (df['timestamp'] <= end_date)
 	df_1wk = df.loc[one_week]
