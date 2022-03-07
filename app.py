@@ -10,6 +10,10 @@ import gensim.corpora as corpora
 from gensim.utils import lemmatize, simple_preprocess
 from nltk.corpus import stopwords
 nltk.download('stopwords')
+from nltk import *
+from nltk.corpus import wordnet
+nltk.download('wordnet')
+from nltk.stem.wordnet import WordNetLemmatizer
 
 # st.set_page_config(layout="wide")
 
