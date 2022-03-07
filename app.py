@@ -7,7 +7,7 @@ import re
 import spacy
 from spacy.lang.en.examples import sentences
 # spacy.download('en_core_web_sm')
-download en_core_web_sm
+# download en_core_web_sm
 import gensim
 import gensim.corpora as corpora
 from gensim.utils import simple_preprocess
