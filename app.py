@@ -6,6 +6,8 @@ import nltk
 import re
 import gensim
 import spacy
+import gensim.corpora as corpora
+from gensim.utils import lemmatize, simple_preprocess
 from nltk.corpus import stopwords
 nltk.download('stopwords')
 
