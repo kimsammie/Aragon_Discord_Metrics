@@ -4,8 +4,9 @@ import json
 import requests
 import datetime as dt
 import re
-import gensim
 import spacy
+from spacy.lang.en.examples import sentences
+import gensim
 import gensim.corpora as corpora
 from gensim.utils import simple_preprocess
 import nltk
