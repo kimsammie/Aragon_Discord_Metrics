@@ -6,7 +6,7 @@ import datetime as dt
 import re
 import spacy
 from spacy.lang.en.examples import sentences
-import en_core_web_sm
+spacy.download('en_core_web_sm')
 import gensim
 import gensim.corpora as corpora
 from gensim.utils import simple_preprocess
