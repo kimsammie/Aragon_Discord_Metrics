@@ -161,7 +161,7 @@ def write():
 		texts = [bigram_mod[doc] for doc in texts]
 		texts = [trigram_mod[bigram_mod[doc]] for doc in texts]
 		texts_out = []
-		nlp = spacy.load('en', disable=['parser', 'ner'])
+		nlp = spacy.load('en_core_web_sm', disable=['parser', 'ner'])
 		for sent in texts:
 			doc = nlp(" ".join(sent))
 			texts_out.append([token.lemma_ for token in doc if
