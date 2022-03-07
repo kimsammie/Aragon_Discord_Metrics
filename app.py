@@ -4,6 +4,8 @@ import json
 import requests
 import nltk
 import re
+import gensim
+import spacy
 from nltk.corpus import stopwords
 nltk.download('stopwords')
 
