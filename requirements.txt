@@ -17,5 +17,4 @@ datetime
 gensim
 spacy
 nltk
-lemmatize
-simple_preprocess
+
