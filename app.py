@@ -194,10 +194,9 @@ def write():
 	corpus = [id2word.doc2bow(text) for text in data_ready]
 
 	# Build LDA model
-	if len(corpus)>0:
-		lda_model = gensim.models.ldamodel.LdaModel(corpus=corpus,
+	lda_model = gensim.models.ldamodel.LdaModel(corpus=corpus,
 													id2word=id2word,
-													num_topics=numberof_topics,
+													num_topics=2,
 													random_state=100,
 													update_every=1,
 													chunksize=10,
