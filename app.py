@@ -160,6 +160,7 @@ def write():
 			data_ready2.append(data_ready[i])
 			original_sentences.append(data_words[i])
 	data_ready = data_ready2
+	print(data_ready)
 
 	# # Build the Bigram, Trigram Models and Lemmatize
 	# bigram = gensim.models.Phrases(data_words, min_count=5, threshold=100)  # higher threshold fewer phrases.
