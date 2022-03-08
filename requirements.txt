@@ -17,3 +17,4 @@ datetime
 gensim
 spacy
 nltk
+wordcloud
