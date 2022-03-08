@@ -111,7 +111,7 @@ def write():
 		 'done', 'try', 'many', 'some', 'nice', 'thank', 'think', 'see', 'rather', 'easy', 'easily', 'lot',
 		 'make', 'want', 'seem', 'run', 'need', 'even', 'right', 'line', 'even', 'also', 'may', 'take', 'come',
 		 'you', 'me', 'what', 'does', 'it', 'to', 'and', 'would', 'guy', 'guys', 'https', 'let', 'sure', 'set', 'maybe',
-		 'still', 'able', 'look', 'yes', 'hi', 'hello', 'hey', 'please', 'like'])
+		 'still', 'able', 'look', 'yes', 'hi', 'hello', 'hey', 'please', 'like', 'ohh', 'theres', 'im', 'prob', 'us'])
 
 	data = retrieve_messages1(channel_num)
 	df = pd.DataFrame(data)
