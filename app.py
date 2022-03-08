@@ -271,7 +271,7 @@ def write():
 	# 1. Wordcloud of Top N words in each topic
 	from matplotlib import pyplot as plt
 	# from wordcloud import WordCloud, STOPWORDS
-	import WordCloud, STOPWORDS
+	from wordcloud import WordCloud
 	import matplotlib.colors as mcolors
 
 	cols = [color for name, color in mcolors.TABLEAU_COLORS.items()]  # more colors: 'mcolors.XKCD_COLORS'
