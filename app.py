@@ -194,16 +194,17 @@ def write():
 	corpus = [id2word.doc2bow(text) for text in data_ready]
 
 	# Build LDA model
-	lda_model = gensim.models.ldamodel.LdaModel(corpus=corpus,
-												id2word=id2word,
-												num_topics=numberof_topics,
-												random_state=100,
-												update_every=1,
-												chunksize=10,
-												passes=10,
-												alpha='symmetric',
-												iterations=100,
-												per_word_topics=True)
+	if corpus>0:
+		lda_model = gensim.models.ldamodel.LdaModel(corpus=corpus,
+													id2word=id2word,
+													num_topics=numberof_topics,
+													random_state=100,
+													update_every=1,
+													chunksize=10,
+													passes=10,
+													alpha='symmetric',
+													iterations=100,
+													per_word_topics=True)
 
 	pprint(lda_model.print_topics())  # The trained topics (keywords and weights)
 
