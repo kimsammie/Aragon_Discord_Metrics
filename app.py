@@ -124,7 +124,7 @@ def write():
 		latestid = df.tail(1)['id'].values[0]
 		newdata = retrieve_messages2(channel_num, latestid)
 		df1 = pd.DataFrame(newdata)
-		df1.timestamp = pd.to_datetime(df1.timestamp)
+		# df1.timestamp = pd.to_datetime(df1.timestamp)
 		df = pd.concat([df, df1])  # expand the database
 		df.sort_values('timestamp', ascending=False, inplace=True)
 	# latestdate = df.tail(1)['timestamp'].values[0]
