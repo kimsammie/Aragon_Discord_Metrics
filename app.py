@@ -302,7 +302,7 @@ def write():
 	plt.margins(x=0, y=0)
 	plt.tight_layout()
 	plt.show()
-	st.pyplot()
+	st.pyplot(fig)
 
 
 	# 	st.markdown(
