@@ -120,16 +120,16 @@ def write():
 
 	# add additional data
 
-	while len(df) < 5000:  # or use before/after timestamp
-		latestid = df.tail(1)['id'].values[0]
-		newdata = retrieve_messages2(channel_num, latestid)
-		df1 = pd.DataFrame(newdata)
-		# df1.timestamp = pd.to_datetime(df1.timestamp)
-		df = pd.concat([df, df1])  # expand the database
-		df.sort_values('timestamp', ascending=False, inplace=True)
+	# while len(df) < 5000:  # or use before/after timestamp
+	# 	latestid = df.tail(1)['id'].values[0]
+	# 	newdata = retrieve_messages2(channel_num, latestid)
+	# 	df1 = pd.DataFrame(newdata)
+	# 	df1.timestamp = pd.to_datetime(df1.timestamp)
+	# 	df = pd.concat([df, df1])  # expand the database
+	# 	df.sort_values('timestamp', ascending=False, inplace=True)
 	# latestdate = df.tail(1)['timestamp'].values[0]
 
-	df = df.reset_index(drop=True)  # if not set to a variable it won't reset
+	# df = df.reset_index(drop=True)  # if not set to a variable it won't reset
 
 	df['timestamp'] = df['timestamp'].dt.date
 	start_date = pd.to_datetime('2022-02-21').date()
