@@ -111,7 +111,7 @@ def write():
 		 'done', 'try', 'many', 'some', 'nice', 'thank', 'think', 'see', 'rather', 'easy', 'easily', 'lot',
 		 'make', 'want', 'seem', 'run', 'need', 'even', 'right', 'line', 'even', 'also', 'may', 'take', 'come',
 		 'you', 'me', 'what', 'does', 'it', 'to', 'and', 'would', 'guy', 'guys', 'https', 'let', 'sure', 'set', 'maybe',
-		 'still', 'able', 'look', 'yes', 'hi', 'hello'])
+		 'still', 'able', 'look', 'yes', 'hi', 'hello', 'hey', 'please', 'like'])
 
 	data = retrieve_messages1(channel_num)
 	df = pd.DataFrame(data)
@@ -152,6 +152,14 @@ def write():
 
 	texts_out = [[word for word in simple_preprocess(str(doc)) if word not in stop_words] for doc in data_words]
 	data_ready = texts_out
+
+	original_sentences = []
+	data_ready2 = []
+	for i in range(len(data_ready)):
+		if len(data_ready[i]) > 3:
+			data_ready2.append(data_ready[i])
+			original_sentences.append(data_words[i])
+	data_ready = data_ready2
 
 	# # Build the Bigram, Trigram Models and Lemmatize
 	# bigram = gensim.models.Phrases(data_words, min_count=5, threshold=100)  # higher threshold fewer phrases.
