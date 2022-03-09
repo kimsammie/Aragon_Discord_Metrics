@@ -340,6 +340,7 @@ def write():
 	st.pyplot(fig)
 
 	st.write('Actual Messages:', df_1wk['content'])
+	from st_aggrid import AgGrid
 	AgGrid(df_1wk['content'], height=500, fit_columns_on_grid_load=True)
 
 	# st.table('Actual Messages:', df_1wk['content'])
