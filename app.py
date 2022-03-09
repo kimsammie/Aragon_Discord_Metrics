@@ -134,11 +134,12 @@ def write():
 		df = pd.concat([df, df1])  # expand the database
 		df.sort_values('timestamp', ascending=False, inplace=True)
 	latestdate = df.tail(1)['timestamp'].values[0]
-	earliestdate = latestdate + d
+
 
 	df = df.reset_index(drop=True)  # if not set to a variable it won't reset
 
-	earliestdate = pd.to_datetime(earliestdate).date()
+	latestdate = pd.to_datetime(latestdate).date()
+	earliestdate = latestdate + dt.timedelta(days=7)
 
 	df['timestamp'] = df['timestamp'].dt.date
 	start_date = pd.to_datetime(start_date_ofweek).date()
