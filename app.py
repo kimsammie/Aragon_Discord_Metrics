@@ -158,6 +158,7 @@ def write():
 
 	st.write('Number of Topics:', int(numberof_topics))
 
+	lemmatizer = WordNetLemmatizer()
 
 	#Tokenize Sentences and Clean
 	def sent_to_words(sentences):
@@ -165,6 +166,7 @@ def write():
 			sent = re.sub('\S*@\S*\s?', '', sent)  # remove emails
 			sent = re.sub('\s+', ' ', sent)  # remove newline chars
 			sent = re.sub("\'", "", sent)  # remove single quotes
+			sent = lemmatizer.lemmatize(sent)
 			sent = gensim.utils.simple_preprocess(str(sent),
 												  deacc=True)  # split the sentence into a list of words. deacc=True option removes punctuations
 			yield (sent)
@@ -175,13 +177,13 @@ def write():
 	texts_out = [[word for word in simple_preprocess(str(doc)) if word not in stop_words] for doc in data_words]
 	data_ready = texts_out
 
-	lemmatizer = WordNetLemmatizer()
+
 
 	original_sentences = []
 	data_ready2 = []
 	for i in range(len(data_ready)):
 		if len(data_ready[i]) > 3:
-			data_ready2.append(lemmatizer.lemmatize(data_ready[i]))
+			data_ready2.append(data_ready[i])
 			original_sentences.append(data_words[i])
 	data_ready = data_ready2
 
