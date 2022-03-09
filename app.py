@@ -124,6 +124,10 @@ def write():
 	df.sort_values('timestamp', ascending=False, inplace=True)
 	df.timestamp = pd.to_datetime(df.timestamp)
 
+	latestdate = df.tail(1)['timestamp'].values[0]
+
+	st.write('processing one week', latestdate)
+
 	# add additional data
 
 	# while len(df) < 5000:  # or use before/after timestamp
@@ -143,7 +147,7 @@ def write():
 	one_week = (df['timestamp'] > start_date) & (df['timestamp'] <= end_date)
 	df_1wk = df.loc[one_week]
 
-	st.write('processing one week')
+
 	#Tokenize Sentences and Clean
 	def sent_to_words(sentences):
 		for sent in sentences:
