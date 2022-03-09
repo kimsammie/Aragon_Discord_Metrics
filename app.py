@@ -181,6 +181,7 @@ def write():
 			original_sentences.append(data_words[i])
 	data_ready = data_ready2
 
+	nltk.download('omw-1.4')
 	from nltk.stem import WordNetLemmatizer
 
 	lemmatizer = WordNetLemmatizer()
