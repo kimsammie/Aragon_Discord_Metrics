@@ -62,7 +62,7 @@ def write():
 
 	st.sidebar.write('Choose a week')
 	date_ofweek = st.sidebar.date_input('Enter the start of date the week (e.g., 2022-02-21)')
-	u = dt.datetime.strptime("2022-02-21", "%Y-%m-%d")
+	u = dt.datetime.strptime(date_ofweek, "%Y-%m-%d").date
 	d = dt.timedelta(days=7)
 	t = u + d
 	st.write('Start date of the week:', date_ofweek)
