@@ -328,7 +328,7 @@ def write():
 
 	st.write('Actual Messages:', df_1wk['content'])
 
-	st.table('Actual Messages:', df_1wk['content'])
+	# st.table('Actual Messages:', df_1wk['content'])
 
 	st.plotly_chart('Actual Messages:', df_1wk['content'])
 
