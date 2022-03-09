@@ -19,7 +19,7 @@ from nltk.corpus import wordnet
 nltk.download('wordnet')
 from nltk.stem.wordnet import WordNetLemmatizer
 
-st.set_page_config(layout="wide")
+# st.set_page_config(layout="wide")
 
 def write():
 	st.title('Aragon Discord Channel Topics Discussed by the Community ')
