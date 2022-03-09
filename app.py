@@ -61,13 +61,13 @@ def write():
 	# below is authorization from my discord login
 
 	st.sidebar.write('Choose a week')
-	date_ofweek = st.sidebar.date_input('Enter the start of date the week (e.g., 2022-02-21)')
+	start_date_ofweek = st.sidebar.date_input('Enter the start of date the week (e.g., 2022-02-21)')
 	# u = dt.datetime.strptime(date_ofweek, "%Y-%m-%d").date()
 	# u = dt.datetime.strptime(date_ofweek, "%Y/%m/%d")
 	d = dt.timedelta(days=7)
-	t = date_ofweek + d
-	st.write('Start date of the week:', date_ofweek)
-	st.write('End date of the week:', t)
+	end_date_ofweek = date_ofweek + d
+	st.write('Start date of the week:', start_date_ofweek)
+	st.write('End date of the week:', end_date_ofweek)
 	# st.table(df1.head(int(var1)))
 
 
@@ -138,11 +138,12 @@ def write():
 	# df = df.reset_index(drop=True)  # if not set to a variable it won't reset
 
 	df['timestamp'] = df['timestamp'].dt.date
-	start_date = pd.to_datetime(date_ofweek).date()
-	end_date = pd.to_datetime('2022-02-27').date()
+	start_date = pd.to_datetime(start_date_ofweek).date()
+	end_date = pd.to_datetime(end_date_ofweek).date()
 	one_week = (df['timestamp'] > start_date) & (df['timestamp'] <= end_date)
 	df_1wk = df.loc[one_week]
 
+	st.write('processing one week')
 	#Tokenize Sentences and Clean
 	def sent_to_words(sentences):
 		for sent in sentences:
