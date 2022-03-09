@@ -112,7 +112,7 @@ def write():
 		# from nltk.corpus import stopwords
 	stop_words = stopwords.words('english')
 	stop_words.extend(
-		['from', 'subject', 'use', 'not', 'would', 'say', 'could', 'be', 'know', 'good', 'go', 'get', 'do',
+		['from', 'subject', 'use', 'not', 'would', 'might', 'say', 'could', 'be', 'know', 'good', 'go', 'get', 'do',
 		 'done', 'try', 'many', 'some', 'nice', 'thank', 'think', 'see', 'rather', 'easy', 'easily', 'lot',
 		 'make', 'want', 'seem', 'run', 'need', 'even', 'right', 'line', 'even', 'also', 'may', 'take', 'come',
 		 'you', 'me', 'what', 'does', 'it', 'to', 'and', 'would', 'guy', 'guys', 'https', 'let', 'sure', 'set', 'maybe',
@@ -327,6 +327,10 @@ def write():
 	st.pyplot(fig)
 
 	st.write('Actual Messages:', df_1wk['content'])
+
+	st.table('Actual Messages:', df_1wk['content'])
+
+	st.plotly_chart('Actual Messages:', df_1wk['content'])
 
 	# 	st.markdown(
 	# """
