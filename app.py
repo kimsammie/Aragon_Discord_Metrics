@@ -61,7 +61,7 @@ def write():
 	# below is authorization from my discord login
 
 	st.sidebar.write('Choose a week')
-	date_ofweek = st.sidebar.date_input('Enter the start of date the week (e.g., 2022-02-21)', datetime.date(2022, 2, 21))
+	date_ofweek = st.sidebar.date_input('Enter the start of date the week (e.g., 2022-02-21)')
 	st.write('The start of date selected:', date_ofweek)
 	# st.table(df1.head(int(var1)))
 
