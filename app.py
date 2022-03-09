@@ -145,6 +145,7 @@ def write():
 	one_week = (df['timestamp'] > start_date) & (df['timestamp'] <= end_date)
 	df_1wk = df.loc[one_week]
 	num_msgs = len(df_1wk)
+	st.write('df_1wk:', df_1wk)
 
 	st.write('NOTE: Earliest date available:', latestdate)
 
@@ -152,7 +153,7 @@ def write():
 	st.write('End date of the week:', end_date_ofweek)
 	st.write('Number of messages for the week:', len(df_1wk))
 
-	st.write('Number of Topics:', num_msgs)
+	st.write('Number of Topics:', int(numberof_topics))
 
 
 	#Tokenize Sentences and Clean
@@ -305,7 +306,7 @@ def write():
 
 	topics = lda_model.show_topics(formatted=False)
 
-	st.write('numberof_topics:', int(numberof_topics))
+	# st.write('numberof_topics:', int(numberof_topics))
 
 	fig, axes = plt.subplots(1, int(numberof_topics), figsize=(10, 10), sharex=True, sharey=True)
 
