@@ -19,7 +19,7 @@ from nltk.corpus import wordnet
 nltk.download('wordnet')
 from nltk.stem.wordnet import WordNetLemmatizer
 
-# st.set_page_config(layout="wide")
+st.set_page_config(layout="wide")
 
 def write():
 	st.title('Aragon Discord Channel Topics Discussed by the Community ')
@@ -38,7 +38,7 @@ def write():
 	st.markdown(
 	"""
 	<br><br/>
-	**PLEASE SELECT THE START DATE OF THE WEEK FROM THE SIDE BAR**
+	**Please see the most dominant topics discussed for the week by first selecting the end date of the week then the number of topics from the side bar **
 	"""
 	, unsafe_allow_html=True)
 
@@ -134,6 +134,7 @@ def write():
 		df = pd.concat([df, df1])  # expand the database
 		df.sort_values('timestamp', ascending=False, inplace=True)
 	latestdate = df.tail(1)['timestamp'].values[0]
+	earliestdate = latestdate + d
 
 	df = df.reset_index(drop=True)  # if not set to a variable it won't reset
 
@@ -146,7 +147,7 @@ def write():
 	df_1wk = df.loc[one_week]
 	num_msgs = len(df_1wk)
 
-	st.write('NOTE: Earliest date available:', latestdate)
+	st.write('NOTE: Earliest date available:', earliestdate)
 
 	st.write('Start date of the week:', start_date_ofweek)
 	st.write('End date of the week:', end_date_ofweek)
