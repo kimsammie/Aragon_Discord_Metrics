@@ -127,7 +127,7 @@ def write():
 
 	# add additional data
 
-	while len(df) < 3000:  # or use before/after timestamp
+	while len(df) < 1500:  # or use before/after timestamp
 		latestid = df.tail(1)['id'].values[0]
 		newdata = retrieve_messages2(channel_num, latestid)
 		df1 = pd.DataFrame(newdata)
@@ -142,7 +142,7 @@ def write():
 
 	st.write('NOTE: Earliest date available:', latestdate)
 
-	st.write('Number of Topics:', numberof_topics)
+	st.write('Number of Topics:', int(numberof_topics))
 
 	df['timestamp'] = df['timestamp'].dt.date
 	start_date = pd.to_datetime(start_date_ofweek).date()
@@ -301,7 +301,7 @@ def write():
 
 	topics = lda_model.show_topics(formatted=False)
 
-	fig, axes = plt.subplots(1, 2, figsize=(10, 10), sharex=True, sharey=True)
+	fig, axes = plt.subplots(int(numberof_topics), 2, figsize=(10, 10), sharex=True, sharey=True)
 
 	for i, ax in enumerate(axes.flatten()):
 		fig.add_subplot(ax)
