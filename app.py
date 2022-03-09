@@ -330,7 +330,7 @@ def write():
 
 	# st.table('Actual Messages:', df_1wk['content'])
 
-	st.plotly_chart('Actual Messages:', df_1wk['content'])
+	st.dataframe(df_1wk['content'])
 
 	# 	st.markdown(
 	# """
