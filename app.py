@@ -124,7 +124,8 @@ def write():
 	df.sort_values('timestamp', ascending=False, inplace=True)
 	df.timestamp = pd.to_datetime(df.timestamp)
 
-	latestdate = df.tail(1)['timestamp'].values[0].date()
+	latestdate = df.tail(1)['timestamp'].values[0]
+	latestdate = pd.to_datetime(latestdate).date()
 
 	st.write('processing one week', latestdate)
 
