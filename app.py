@@ -181,6 +181,12 @@ def write():
 			original_sentences.append(data_words[i])
 	data_ready = data_ready2
 
+	from nltk.stem import WordNetLemmatizer
+
+	lemmatizer = WordNetLemmatizer()
+
+	st.write('Number of Topics:', lemmatizer.lemmatize("rocks"))
+
 
 	# # Build the Bigram, Trigram Models and Lemmatize --- CAN'T BE LOADED IN STREAMLIT DUE TO THE SIZE LIMIT
 	# bigram = gensim.models.Phrases(data_words, min_count=5, threshold=100)  # higher threshold fewer phrases.
@@ -330,7 +336,7 @@ def write():
 
 	# st.table('Actual Messages:', df_1wk['content'])
 
-	st.dataframe(df_1wk['content'])
+	# st.dataframe(df_1wk['content'])
 
 	# 	st.markdown(
 	# """
