@@ -114,12 +114,12 @@ def write():
 		# from nltk.corpus import stopwords
 	stop_words = stopwords.words('english')
 	stop_words.extend(
-		['from', 'subject', 'use', 'not', 'would', 'might', 'say', 'could', 'be', 'know', 'good', 'go', 'get', 'do',
+		['from', 'subject', 'use', 'using', 'not', 'would', 'might', 'say', 'could', 'be', 'know', 'good', 'go', 'get', 'do',
 		 'done', 'try', 'many', 'some', 'nice', 'thank', 'think', 'see', 'rather', 'easy', 'easily', 'lot',
 		 'make', 'want', 'seem', 'run', 'need', 'even', 'right', 'line', 'even', 'also', 'may', 'take', 'come',
 		 'you', 'me', 'what', 'does', 'it', 'to', 'and', 'would', 'guy', 'guys', 'https', 'let', 'sure', 'set', 'maybe',
 		 'still', 'able', 'look', 'yes', 'hi', 'hello', 'hey', 'please', 'like', 'ohh', 'theres', 'im', 'prob', 'us', 'said',
-		 'one'])
+		 'one', 'http', 'com'])
 
 	data = retrieve_messages1(channel_num)
 	df = pd.DataFrame(data)
@@ -340,6 +340,7 @@ def write():
 	st.pyplot(fig)
 
 	st.write('Actual Messages:', df_1wk['content'])
+	AgGrid(df_1wk['content'], height=500, fit_columns_on_grid_load=True)
 
 	# st.table('Actual Messages:', df_1wk['content'])
 
