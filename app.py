@@ -65,7 +65,7 @@ def write():
 	# u = dt.datetime.strptime(date_ofweek, "%Y-%m-%d").date()
 	# u = dt.datetime.strptime(date_ofweek, "%Y/%m/%d")
 	d = dt.timedelta(days=7)
-	end_date_ofweek = date_ofweek + d
+	end_date_ofweek = start_date_ofweek + d
 	st.write('Start date of the week:', start_date_ofweek)
 	st.write('End date of the week:', end_date_ofweek)
 	# st.table(df1.head(int(var1)))
