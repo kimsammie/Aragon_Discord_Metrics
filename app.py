@@ -18,6 +18,8 @@ from nltk import *
 from nltk.corpus import wordnet
 nltk.download('wordnet')
 from nltk.stem.wordnet import WordNetLemmatizer
+nltk.download('omw-1.4')
+from nltk.stem import WordNetLemmatizer
 
 # st.set_page_config(layout="wide")
 
@@ -173,20 +175,21 @@ def write():
 	texts_out = [[word for word in simple_preprocess(str(doc)) if word not in stop_words] for doc in data_words]
 	data_ready = texts_out
 
+	lemmatizer = WordNetLemmatizer()
+
 	original_sentences = []
 	data_ready2 = []
 	for i in range(len(data_ready)):
 		if len(data_ready[i]) > 3:
-			data_ready2.append(data_ready[i])
+			data_ready2.append(lemmatizer.lemmatize(data_ready[i]))
 			original_sentences.append(data_words[i])
 	data_ready = data_ready2
 
-	nltk.download('omw-1.4')
-	from nltk.stem import WordNetLemmatizer
 
-	lemmatizer = WordNetLemmatizer()
 
-	st.write('Number of Topics:', lemmatizer.lemmatize("rocks"))
+
+	#
+	# st.write('Number of Topics:', lemmatizer.lemmatize("rocks"))
 
 
 	# # Build the Bigram, Trigram Models and Lemmatize --- CAN'T BE LOADED IN STREAMLIT DUE TO THE SIZE LIMIT
