@@ -70,8 +70,8 @@ def write():
 	# st.table(df1.head(int(var1)))
 
 
-	st.sidebar.write('Choose the Discord channel')
-	selection = st.sidebar.selectbox('Choose Method', ['Option 1: General', 'Option 2: Intro', 'Option 3: Questions'])
+	# st.sidebar.write('Choose the Discord channel')
+	selection = st.sidebar.selectbox('Choose the Discord channel', ['Option 1: General', 'Option 2: Intro', 'Option 3: Questions'])
 
 	if selection == 'Option 1: General':
 		channel_num = '672466989767458861'
@@ -86,7 +86,7 @@ def write():
 
 
 	st.sidebar.write('Number of Topics')
-	numberof_topics = st.sidebar.number_input('Enter the number of topics', min_value=1, max_value=10, value=2, step=1)
+	numberof_topics = st.sidebar.number_input('Enter the number of topics (1 to 3):', min_value=1, max_value=3, value=2, step=1)
 	# st.table(df1.head(int(var1)))
 
 
@@ -144,6 +144,7 @@ def write():
 	end_date = pd.to_datetime(end_date_ofweek).date()
 	one_week = (df['timestamp'] > start_date) & (df['timestamp'] <= end_date)
 	df_1wk = df.loc[one_week]
+	num_msgs = len(df_1wk)
 
 	st.write('NOTE: Earliest date available:', latestdate)
 
@@ -151,7 +152,7 @@ def write():
 	st.write('End date of the week:', end_date_ofweek)
 	st.write('Number of messages for the week:', len(df_1wk))
 
-	st.write('Number of Topics:', int(numberof_topics))
+	st.write('Number of Topics:', num_msgs)
 
 
 	#Tokenize Sentences and Clean
@@ -306,7 +307,7 @@ def write():
 
 	# st.write('Topics:', topics)
 
-	fig, axes = plt.subplots(1, 4, figsize=(10, 10), sharex=True, sharey=True)
+	fig, axes = plt.subplots(1, 3, figsize=(10, 10), sharex=True, sharey=True)
 
 	for i, ax in enumerate(axes.flatten()):
 		fig.add_subplot(ax)
