@@ -1,6 +1,8 @@
 numpy
 pandas
 streamlit
+streamlit-aggrid
+stre
 cvxopt
 plotly
 yfinance
