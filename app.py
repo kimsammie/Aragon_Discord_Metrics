@@ -301,9 +301,9 @@ def write():
 
 	topics = lda_model.show_topics(formatted=False)
 
-	st.write('Topics:', topics)
+	# st.write('Topics:', topics)
 
-	fig, axes = plt.subplots(1, 2, figsize=(10, 10), sharex=True, sharey=True)
+	fig, axes = plt.subplots(1, 3, figsize=(10, 10), sharex=True, sharey=True)
 
 	for i, ax in enumerate(axes.flatten()):
 		fig.add_subplot(ax)
