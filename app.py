@@ -66,8 +66,7 @@ def write():
 	# u = dt.datetime.strptime(date_ofweek, "%Y/%m/%d")
 	d = dt.timedelta(days=7)
 	end_date_ofweek = start_date_ofweek + d
-	st.write('Start date of the week:', start_date_ofweek)
-	st.write('End date of the week:', end_date_ofweek)
+
 	# st.table(df1.head(int(var1)))
 
 
@@ -142,6 +141,10 @@ def write():
 
 	st.write('NOTE: Earliest date available:', latestdate)
 
+	st.write('Start date of the week:', start_date_ofweek)
+	st.write('End date of the week:', end_date_ofweek)
+	st.write('Number of messages for the week:', len(df_1wk))
+
 	st.write('Number of Topics:', int(numberof_topics))
 
 	df['timestamp'] = df['timestamp'].dt.date
@@ -149,6 +152,9 @@ def write():
 	end_date = pd.to_datetime(end_date_ofweek).date()
 	one_week = (df['timestamp'] > start_date) & (df['timestamp'] <= end_date)
 	df_1wk = df.loc[one_week]
+
+
+
 
 
 	#Tokenize Sentences and Clean
