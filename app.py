@@ -210,7 +210,7 @@ def write():
 	# Build LDA model
 	lda_model = gensim.models.ldamodel.LdaModel(corpus=corpus,
 													id2word=id2word,
-													num_topics=2,
+													num_topics=int(numberof_topics),
 													random_state=100,
 													update_every=1,
 													chunksize=10,
