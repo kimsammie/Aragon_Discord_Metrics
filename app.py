@@ -138,7 +138,7 @@ def write():
 
 	df = df.reset_index(drop=True)  # if not set to a variable it won't reset
 
-	latestdate = pd.to_datetime(latestdate).date()
+	earliestdate = pd.to_datetime(earliestdate).date()
 
 	df['timestamp'] = df['timestamp'].dt.date
 	start_date = pd.to_datetime(start_date_ofweek).date()
