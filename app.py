@@ -87,7 +87,7 @@ def write():
 
 
 	st.sidebar.write('Number of Topics')
-	numberof_topics = st.sidebar.number_input('Enter the number of topics')
+	numberof_topics = st.sidebar.number_input('Enter the number of topics', min_value=1, max_value=10, value=2, step=1)
 	# st.table(df1.head(int(var1)))
 
 
@@ -117,7 +117,8 @@ def write():
 		 'done', 'try', 'many', 'some', 'nice', 'thank', 'think', 'see', 'rather', 'easy', 'easily', 'lot',
 		 'make', 'want', 'seem', 'run', 'need', 'even', 'right', 'line', 'even', 'also', 'may', 'take', 'come',
 		 'you', 'me', 'what', 'does', 'it', 'to', 'and', 'would', 'guy', 'guys', 'https', 'let', 'sure', 'set', 'maybe',
-		 'still', 'able', 'look', 'yes', 'hi', 'hello', 'hey', 'please', 'like', 'ohh', 'theres', 'im', 'prob', 'us', 'said'])
+		 'still', 'able', 'look', 'yes', 'hi', 'hello', 'hey', 'please', 'like', 'ohh', 'theres', 'im', 'prob', 'us', 'said',
+		 'one'])
 
 	data = retrieve_messages1(channel_num)
 	df = pd.DataFrame(data)
@@ -140,6 +141,8 @@ def write():
 	latestdate = pd.to_datetime(latestdate).date()
 
 	st.write('NOTE: Earliest date available:', latestdate)
+
+	st.write('Number of Topics:', numberof_topics)
 
 	df['timestamp'] = df['timestamp'].dt.date
 	start_date = pd.to_datetime(start_date_ofweek).date()
@@ -171,9 +174,9 @@ def write():
 			data_ready2.append(data_ready[i])
 			original_sentences.append(data_words[i])
 	data_ready = data_ready2
-	print("TESTEST")
 
-	# # Build the Bigram, Trigram Models and Lemmatize
+
+	# # Build the Bigram, Trigram Models and Lemmatize --- CAN'T BE LOADED IN STREAMLIT DUE TO THE SIZE LIMIT
 	# bigram = gensim.models.Phrases(data_words, min_count=5, threshold=100)  # higher threshold fewer phrases.
 	# trigram = gensim.models.Phrases(bigram[data_words], threshold=100)
 	# bigram_mod = gensim.models.phrases.Phraser(bigram)
