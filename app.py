@@ -127,20 +127,20 @@ def write():
 	latestdate = df.tail(1)['timestamp'].values[0]
 	latestdate = pd.to_datetime(latestdate).date()
 
-	st.write('processing one week', latestdate)
+	st.write('NOTE: Earliest date available:', latestdate)
 
 	# add additional data
 
-	# while len(df) < 5000:  # or use before/after timestamp
-	# 	latestid = df.tail(1)['id'].values[0]
-	# 	newdata = retrieve_messages2(channel_num, latestid)
-	# 	df1 = pd.DataFrame(newdata)
-	# 	df1.timestamp = pd.to_datetime(df1.timestamp)
-	# 	df = pd.concat([df, df1])  # expand the database
-	# 	df.sort_values('timestamp', ascending=False, inplace=True)
-	# latestdate = df.tail(1)['timestamp'].values[0]
+	while len(df) < 5000:  # or use before/after timestamp
+		latestid = df.tail(1)['id'].values[0]
+		newdata = retrieve_messages2(channel_num, latestid)
+		df1 = pd.DataFrame(newdata)
+		df1.timestamp = pd.to_datetime(df1.timestamp)
+		df = pd.concat([df, df1])  # expand the database
+		df.sort_values('timestamp', ascending=False, inplace=True)
+	latestdate = df.tail(1)['timestamp'].values[0]
 
-	# df = df.reset_index(drop=True)  # if not set to a variable it won't reset
+	df = df.reset_index(drop=True)  # if not set to a variable it won't reset
 
 	df['timestamp'] = df['timestamp'].dt.date
 	start_date = pd.to_datetime(start_date_ofweek).date()
