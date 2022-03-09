@@ -64,8 +64,8 @@ def write():
 	date_ofweek = st.sidebar.date_input('Enter the start of date the week (e.g., 2022-02-21)')
 	# u = dt.datetime.strptime(date_ofweek, "%Y-%m-%d").date()
 	# u = dt.datetime.strptime(date_ofweek, "%Y/%m/%d")
-	# d = dt.timedelta(days=7)
-	# t = u + d
+	d = dt.timedelta(days=7)
+	t = date_ofweek + d
 	st.write('Start date of the week:', date_ofweek)
 	st.write('End date of the week:', t)
 	# st.table(df1.head(int(var1)))
