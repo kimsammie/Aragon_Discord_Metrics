@@ -141,14 +141,10 @@ def write():
 
 	df['timestamp'] = df['timestamp'].dt.date
 	start_date = pd.to_datetime(start_date_ofweek).date()
-	st.write('start_date:', start_date)
 	end_date = pd.to_datetime(end_date_ofweek).date()
-	st.write('start_date:', end_date)
 	one_week = (df['timestamp'] > start_date) & (df['timestamp'] <= end_date)
-	st.write('one_week:', one_week)
 	df_1wk = df.loc[one_week]
 	num_msgs = len(df_1wk)
-	st.write('df_1wk:', df_1wk)
 
 	st.write('NOTE: Earliest date available:', latestdate)
 
@@ -328,6 +324,7 @@ def write():
 	plt.show()
 	st.pyplot(fig)
 
+	st.write('Actual Messages:', df_1wk['content'])
 
 	# 	st.markdown(
 	# """
