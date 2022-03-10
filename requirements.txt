@@ -1,7 +1,6 @@
 numpy
 pandas
 streamlit
-streamlit-aggrid
 cvxopt
 plotly
 yfinance
@@ -18,4 +17,3 @@ datetime
 gensim
 spacy
 nltk
-wordcloud
