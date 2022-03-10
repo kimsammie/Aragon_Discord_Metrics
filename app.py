@@ -93,7 +93,7 @@ def write():
 		 'you', 'me', 'guy', 'guys', 'im', 'us',
 		 'hi', 'hello', 'hey','thanks', 'thank', 'thx','yes', 'no', 'ohh', 'ha',
 		 'what', 'would', 'might', 'could', 'maybe','may', 'theres', 'there', 'here', 'do', 'does', 'done', 'be',
-		 'also','still', 'able', 'since', 'yet', 'it', 'many', 'some', 'rather', 'make', 'to', 'and', 'let', 'please', 'like','not', 'from',
+		 'also','still', 'able', 'since', 'yet', 'it', 'many', 'some', 'rather', 'make', 'to', 'and', 'let', 'please', 'like','not', 'from', 'ever',
 		 'try', 'trying', 'nice', 'think', 'thinking' 'see', 'seeing', 'easy', 'easily', 'lot','use', 'using', 'go', 'going', 'say', 'said','set',
 		 'want', 'seem', 'run', 'need', 'even', 'right', 'line', 'take', 'come','look', 'looking', 'prob', 'one',  'feel', 'way', 'sure','know', 'get',
 		 'https', 'http', 'com', 'etc' , 'daos', 'subject'
@@ -202,13 +202,15 @@ def write():
 	lda_model = gensim.models.ldamodel.LdaModel(corpus=corpus,
 													id2word=id2word,
 													num_topics=int(numberof_topics),
-													random_state=100,
-													update_every=1,
-													chunksize=10,
-													passes=10,
-													alpha='symmetric',
+													random_state=100, # this serves as a seed (to repeat the training process)
+													update_every=1, # update the model every update_every chunksize chunks (essentially, this is for memory consumption optimization)
+													chunksize=10, # number of documents to consider at once (affects the memory consumption)
+													passes=10, # how many times the algorithm is supposed to pass over the whole corpus
+													alpha='symmetric', # `‘asymmetric’ and ‘auto’: the former uses a fixed normalized asymmetric 1.0/topicno prior, the latter learns an asymmetric prior directly from your data.
 													iterations=100,
-													per_word_topics=True)
+													per_word_topics=True) # setting this to True allows for extraction of the most likely topics given a word.
+													# The training process is set in such a way that every word will be assigned to a topic. Otherwise, words that are not indicative are going to be omitted.
+													# phi_value is another parameter that steers this process - it is a threshold for a word treated as indicative or not.
 
 	pprint(lda_model.print_topics())  # The trained topics (keywords and weights)
 
@@ -295,19 +297,20 @@ def write():
 
 	fig, axes = plt.subplots(1, int(numberof_topics), figsize=(10, 10), sharex=True, sharey=True) #nrows, ncols
 
-	st.write('topics:', topics)
-	st.write('fig:', fig)
+	# st.write('topics:', topics)
+	# st.write('fig:', fig)
 	# st.write('axes:', axes)
 
 	for i, ax in enumerate(axes.flatten()):
-		st.write('i:', i)
-		st.write('ax:', ax)
-		fig.add_subplot(ax)
-		topic_words = dict(topics[i][1])
-		cloud.generate_from_frequencies(topic_words, max_font_size=300)
-		plt.gca().imshow(cloud)
-		plt.gca().set_title('Topic ' + str(i+1), fontdict=dict(size=16))
-		plt.gca().axis('off')
+		# st.write('i:', i)
+		# st.write('ax:', ax)
+		if type(axes)!=np.ndarray
+			fig.add_subplot(ax)
+			topic_words = dict(topics[i][1])
+			cloud.generate_from_frequencies(topic_words, max_font_size=300)
+			plt.gca().imshow(cloud)
+			plt.gca().set_title('Topic ' + str(i+1), fontdict=dict(size=16))
+			plt.gca().axis('off')
 
 	plt.subplots_adjust(wspace=0, hspace=0)
 	plt.axis('off')
