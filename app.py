@@ -325,7 +325,7 @@ def write():
 
 	# st.write('numberof_topics:', int(numberof_topics))
 
-	fig, axes = plt.subplots(1, numberof_topics, figsize=(10, 10), sharex=True, sharey=True) #nrows, ncols
+	fig, axes = plt.subplots(1, int(numberof_topics), figsize=(10, 10), sharex=True, sharey=True) #nrows, ncols
 
 	for i, ax in enumerate(axes.flatten()):
 		fig.add_subplot(ax)
