@@ -65,7 +65,7 @@ def write():
 		channel_num = '694844628586856469'
 
 	# st.sidebar.write('Number of Topics')
-	numberof_topics = st.sidebar.number_input('Enter the number of topics (1 to 3):', min_value=1, max_value=3, value=2, step=1)
+	numberof_topics = st.sidebar.number_input('Enter the number of topics (1 to 3):', min_value=2, max_value=5, value=2, step=1)
 
 	def retrieve_messages1(channelid):
 		headers = {
@@ -297,13 +297,8 @@ def write():
 
 	fig, axes = plt.subplots(1, int(numberof_topics), figsize=(10, 10), sharex=True, sharey=True) #nrows, ncols
 
-	# st.write('topics:', topics)
-	# st.write('fig:', fig)
-	# st.write('axes:', axes)
 
 	for i, ax in enumerate(axes.flatten()):
-		# st.write('i:', i)
-		# st.write('ax:', ax)
 		if type(axes)!=np.ndarray:
 			fig.add_subplot(ax)
 			topic_words = dict(topics[i][1])
