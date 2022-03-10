@@ -5,7 +5,6 @@ cvxopt
 plotly
 yfinance
 plotly-express
-streamlit-aggrid
 oauth2client
 gspread
 matplotlib
