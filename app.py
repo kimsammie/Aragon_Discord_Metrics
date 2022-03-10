@@ -114,12 +114,15 @@ def write():
 		# from nltk.corpus import stopwords
 	stop_words = stopwords.words('english')
 	stop_words.extend(
-		['from', 'subject', 'use', 'using', 'not', 'would', 'might', 'say', 'could', 'be', 'know', 'good', 'go', 'get', 'do',
-		 'done', 'try', 'many', 'some', 'nice', 'thank', 'think', 'see', 'rather', 'easy', 'easily', 'lot',
-		 'make', 'want', 'seem', 'run', 'need', 'even', 'right', 'line', 'even', 'also', 'may', 'take', 'come',
-		 'you', 'me', 'what', 'does', 'it', 'to', 'and', 'would', 'guy', 'guys', 'https', 'let', 'sure', 'set', 'maybe',
-		 'still', 'able', 'look', 'yes', 'hi', 'hello', 'hey', 'please', 'like', 'ohh', 'theres', 'im', 'prob', 'us', 'said',
-		 'one', 'http', 'com', 'ha', 'thanks', 'feel', 'yet', 'way', 'since', 'going', 'daos', 'trying'])
+		['from', 'subject',
+		 'you', 'me', 'guy', 'guys', 'im', 'us',
+		 'hi', 'hello', 'hey','thanks', 'thank', 'thx','yes', 'no', 'ohh', 'ha',
+		 'what', 'would', 'might', 'could', 'maybe','may', 'theres', 'do', 'does', 'done', 'be', 'know', 'good', 'go', 'get',
+		 'also','still', 'able', 'since', 'yet', 'it', 'many', 'some', 'rather', 'make', 'to', 'and', 'set', 'let', 'please', 'like',
+		 'try', 'trying', 'nice', 'think', 'see', 'easy', 'easily', 'lot','use', 'using', 'go', 'going', 'not', 'say', 'said',
+		 'want', 'seem', 'run', 'need', 'even', 'right', 'line', 'even',  'take', 'come','look', 'prob', 'one',  'feel', 'way', 'sure',
+		 'https', 'http', 'com', 'etc' , 'daos'
+		 ])
 
 	data = retrieve_messages1(channel_num)
 	df = pd.DataFrame(data)
@@ -322,7 +325,7 @@ def write():
 
 	# st.write('numberof_topics:', int(numberof_topics))
 
-	fig, axes = plt.subplots(1, int(numberof_topics), figsize=(10, 10), sharex=True, sharey=True)
+	fig, axes = plt.subplots(1, 3, figsize=(10, 10), sharex=True, sharey=True) #nrows, ncols
 
 	for i, ax in enumerate(axes.flatten()):
 		fig.add_subplot(ax)
