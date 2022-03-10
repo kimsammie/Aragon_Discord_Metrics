@@ -44,33 +44,15 @@ def write():
 	"""
 	, unsafe_allow_html=True)
 
-	# df1 = pd.read_csv("plagiarison_top_selections.csv")
-	# df1.sort_values('Count of score', ascending = False)
-	# df2 = pd.read_csv("SBERT_raw_results.csv", index_col=False )
-	# df3 = pd.read_csv("whitepaper_list.csv")
-	#
-	# st.sidebar.write('Choose Your Crypto Whitepapers')
-	# selection = st.sidebar.selectbox('Choose Method', ['Option 1: Top # Results', 'Option 2: Manual Selection'])
-	#
-	# if selection == 'Option 1: Top # Results':
-	#
-	# 	st.sidebar.write('Option 1')
-	# 	var1 = st.sidebar.number_input('Enter the number of top pairs (max 50)', max_value = 50)
-	# 	st.table(df1.head(int(var1)))
-
-
 	# creating two functions as discord seems to take only one request i.e., either limit or before/after message id
 	# below is authorization from my discord login
 
-	st.sidebar.write('Choose a week')
+	# st.sidebar.write('Choose a week')
 	end_date_ofweek = st.sidebar.date_input('Enter the end of date the week (e.g., 2022-02-21)')
 	# u = dt.datetime.strptime(date_ofweek, "%Y-%m-%d").date()
 	# u = dt.datetime.strptime(date_ofweek, "%Y/%m/%d")
 	d = dt.timedelta(days=7)
 	start_date_ofweek = end_date_ofweek - d
-
-	# st.table(df1.head(int(var1)))
-
 
 	# st.sidebar.write('Choose the Discord channel')
 	selection = st.sidebar.selectbox('Choose the Discord channel', ['Option 1: General', 'Option 2: Intro', 'Option 3: Questions'])
@@ -81,16 +63,9 @@ def write():
 		channel_num = '684539869502111755'
 	elif selection == 'Option 3: Questions':
 		channel_num = '694844628586856469'
-		# st.sidebar.write('Option 1')
-		# var1 = st.sidebar.number_input('Enter the number of top pairs (max 50)', max_value = 50)
-		# st.table(df1.head(int(var1)))
-		#
 
-
-	st.sidebar.write('Number of Topics')
+	# st.sidebar.write('Number of Topics')
 	numberof_topics = st.sidebar.number_input('Enter the number of topics (1 to 3):', min_value=1, max_value=3, value=2, step=1)
-	# st.table(df1.head(int(var1)))
-
 
 	def retrieve_messages1(channelid):
 		headers = {
@@ -169,7 +144,6 @@ def write():
 			sent = re.sub('\S*@\S*\s?', '', sent)  # remove emails
 			sent = re.sub('\s+', ' ', sent)  # remove newline chars
 			sent = re.sub("\'", "", sent)  # remove single quotes
-			# sent = lemmatizer.lemmatize(sent)
 			sent = gensim.utils.simple_preprocess(str(sent),
 												  deacc=True)  # split the sentence into a list of words. deacc=True option removes punctuations
 			sent = [lemmatizer.lemmatize(w) for w in sent]
@@ -181,8 +155,6 @@ def write():
 	texts_out = [[word for word in simple_preprocess(str(doc)) if word not in stop_words] for doc in data_words]
 	data_ready = texts_out
 
-
-
 	original_sentences = []
 	data_ready2 = []
 	for i in range(len(data_ready)):
@@ -190,9 +162,6 @@ def write():
 			data_ready2.append(data_ready[i])
 			original_sentences.append(data_words[i])
 	data_ready = data_ready2
-
-
-
 
 	#
 	# st.write('Number of Topics:', lemmatizer.lemmatize("rocks"))
@@ -323,11 +292,16 @@ def write():
 
 	topics = lda_model.show_topics(formatted=False)
 
-	# st.write('numberof_topics:', int(numberof_topics))
 
 	fig, axes = plt.subplots(1, int(numberof_topics), figsize=(10, 10), sharex=True, sharey=True) #nrows, ncols
 
+	st.write('topics:', topics)
+	st.write('fig:', fig)
+	st.write('axes:', axes)
+
 	for i, ax in enumerate(axes.flatten()):
+		st.write('i:', i)
+		st.write('ax:', ax)
 		fig.add_subplot(ax)
 		topic_words = dict(topics[i][1])
 		cloud.generate_from_frequencies(topic_words, max_font_size=300)
