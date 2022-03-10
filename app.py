@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import numpy as np
 import json
 import requests
 import datetime as dt
@@ -65,7 +66,7 @@ def write():
 		channel_num = '694844628586856469'
 
 	# st.sidebar.write('Number of Topics')
-	numberof_topics = st.sidebar.number_input('Enter the number of topics (1 to 3):', min_value=2, max_value=5, value=2, step=1)
+	numberof_topics = st.sidebar.number_input('Enter the number of topics (1 to 3):', min_value=1, max_value=5, value=2, step=1)
 
 	def retrieve_messages1(channelid):
 		headers = {
