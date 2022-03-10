@@ -21,7 +21,9 @@ nltk.download('wordnet')
 from nltk.stem.wordnet import WordNetLemmatizer
 nltk.download('omw-1.4')
 from nltk.stem import WordNetLemmatizer
-
+from matplotlib import pyplot as plt
+from wordcloud import WordCloud
+import matplotlib.colors as mcolors
 # st.set_page_config(layout="wide")
 
 def write():
@@ -66,7 +68,7 @@ def write():
 		channel_num = '694844628586856469'
 
 	# st.sidebar.write('Number of Topics')
-	numberof_topics = st.sidebar.number_input('Enter the number of topics (1 to 3):', min_value=1, max_value=5, value=2, step=1)
+	numberof_topics = st.sidebar.number_input('Enter the number of topics (1 to 3):', min_value=2, max_value=5, value=2, step=1)
 
 	def retrieve_messages1(channelid):
 		headers = {
@@ -277,10 +279,8 @@ def write():
 
 	# a word cloud with the size of the words proportional to the weight
 	# 1. Wordcloud of Top N words in each topic
-	from matplotlib import pyplot as plt
+
 	# from wordcloud import WordCloud, STOPWORDS
-	from wordcloud import WordCloud
-	import matplotlib.colors as mcolors
 
 	cols = [color for name, color in mcolors.TABLEAU_COLORS.items()]  # more colors: 'mcolors.XKCD_COLORS'
 
@@ -300,13 +300,12 @@ def write():
 
 
 	for i, ax in enumerate(axes.flatten()):
-		if type(axes)!=np.ndarray:
-			fig.add_subplot(ax)
-			topic_words = dict(topics[i][1])
-			cloud.generate_from_frequencies(topic_words, max_font_size=300)
-			plt.gca().imshow(cloud)
-			plt.gca().set_title('Topic ' + str(i+1), fontdict=dict(size=16))
-			plt.gca().axis('off')
+		fig.add_subplot(ax)
+		topic_words = dict(topics[i][1])
+		cloud.generate_from_frequencies(topic_words, max_font_size=300)
+		plt.gca().imshow(cloud)
+		plt.gca().set_title('Topic ' + str(i+1), fontdict=dict(size=16))
+		plt.gca().axis('off')
 
 	plt.subplots_adjust(wspace=0, hspace=0)
 	plt.axis('off')
