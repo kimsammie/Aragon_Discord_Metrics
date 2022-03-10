@@ -58,7 +58,7 @@ def write():
 	start_date_ofweek = end_date_ofweek - d
 
 	# st.sidebar.write('Choose the Discord channel')
-	selection = st.sidebar.selectbox('Choose the Discord channel', ['Option 1: General', 'Option 2: Intro', 'Option 3: Questions'])
+	selection = st.sidebar.selectbox('Choose the Discord channel', ['Option 1: General', 'Option 2: Intro', 'Option 3: Questions', 'Option 4: Support', 'Option 5: Bounty-Board'])
 
 	if selection == 'Option 1: General':
 		channel_num = '672466989767458861'
@@ -68,7 +68,7 @@ def write():
 		channel_num = '694844628586856469'
 	elif selection == 'Option 4: Support':
 		channel_num = '847787632406822913'
-	elif selection == 'Option 5: Bounty=Board':
+	elif selection == 'Option 5: Bounty-Board':
 		channel_num = '938187974540136508'
 
 
