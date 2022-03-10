@@ -40,7 +40,7 @@ def write():
 	st.markdown(
 	"""
 	<br><br/>
-	**Please see the most dominant topics discussed for the week by first selecting the end date of the week then the number of topics from the side bar **
+	Please see the most dominant topics discussed for the week by first selecting the end date of the week then the number of topics from the side bar 
 	"""
 	, unsafe_allow_html=True)
 
@@ -119,7 +119,7 @@ def write():
 		 'make', 'want', 'seem', 'run', 'need', 'even', 'right', 'line', 'even', 'also', 'may', 'take', 'come',
 		 'you', 'me', 'what', 'does', 'it', 'to', 'and', 'would', 'guy', 'guys', 'https', 'let', 'sure', 'set', 'maybe',
 		 'still', 'able', 'look', 'yes', 'hi', 'hello', 'hey', 'please', 'like', 'ohh', 'theres', 'im', 'prob', 'us', 'said',
-		 'one', 'http', 'com'])
+		 'one', 'http', 'com', 'ha', 'thanks', 'feel', 'yet', 'way', 'since', 'going', 'daos', 'trying'])
 
 	data = retrieve_messages1(channel_num)
 	df = pd.DataFrame(data)
@@ -150,7 +150,7 @@ def write():
 	df_1wk = df.loc[one_week]
 	num_msgs = len(df_1wk)
 
-	st.write('NOTE: Earliest date available:', earliestdate)
+	st.write('**Note: Earliest date available:', earliestdate)
 
 	st.write('Start date of the week:', start_date_ofweek)
 	st.write('End date of the week:', end_date_ofweek)
@@ -340,8 +340,6 @@ def write():
 	st.pyplot(fig)
 
 	st.write('Actual Messages:', df_1wk['content'])
-	# from st_aggrid import AgGrid
-	# AgGrid(df_1wk['content'], height=500, fit_columns_on_grid_load=True)
 
 	# st.table('Actual Messages:', df_1wk['content'])
 
