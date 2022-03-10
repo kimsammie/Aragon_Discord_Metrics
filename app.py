@@ -304,7 +304,7 @@ def write():
 	for i, ax in enumerate(axes.flatten()):
 		# st.write('i:', i)
 		# st.write('ax:', ax)
-		if type(axes)!=np.ndarray
+		if type(axes)!=np.ndarray:
 			fig.add_subplot(ax)
 			topic_words = dict(topics[i][1])
 			cloud.generate_from_frequencies(topic_words, max_font_size=300)
@@ -325,31 +325,5 @@ def write():
 
 	# st.dataframe(df_1wk['content'])
 
-	# 	st.markdown(
-	# """
-	# <br><br/>
-	# **IF YOU WANT A FURTHER REVIEW OF A PAIR FROM THE ABOVE TABLE, PLEASE SELECT THE PAIR FROM THE SIDE BAR**
-	# """
-	# , unsafe_allow_html=True)
-	#
-	# 	selection2 = st.sidebar.selectbox('Select a Pair for Further Review', df2['Query_Doc@Source_Doc'].unique())
-	# 	st.write('Count of Score', len(df2[df2['Query_Doc@Source_Doc'] == selection2]))
-	# 	st.table(df2[df2['Query_Doc@Source_Doc'] == selection2])
 
-	# else:
-	# 	st.sidebar.write('Option 2')
-	# 	manual1 = st.sidebar.selectbox('Choose Whitepaper 1', df3)
-	# 	manual2 = st.sidebar.selectbox('Choose Whitepaper 2', df3)
-	# 	if len(df2[df2['Query_Doc@Source_Doc'] == manual1+'@'+manual2]) > 0:
-	# 		st.write('**Whitepaper Pair Selected:**', manual1+'@'+manual2)
-	# 		st.write('**Count of Hits Exceeding Similarity Score 80:**', len(df2[df2['Query_Doc@Source_Doc'] == manual1+'@'+manual2]))
-	# 		# st.table(df2[df2['Query_Doc@Source_Doc'] == manual1+'@'+manual2].set_index('Query_Doc@Source_Doc'))
-	# 		st.table(df2[df2['Query_Doc@Source_Doc'] == manual1+'@'+manual2].sort_values(by='Cosine_Similarity_Score', ascending=False))
-	# 	else:
-	# 		st.write('**Whitepaper Pair Selected:**', manual2+'@'+manual1)
-	# 		st.write('**Count of Hits Exceeding Similarity Score 80:**', len(df2[df2['Query_Doc@Source_Doc'] == manual2+'@'+manual1]))
-	# 		st.table(df2[df2['Query_Doc@Source_Doc'] == manual2+'@'+manual1].sort_values(by='Cosine_Similarity_Score', ascending=False))
-	#
-
-
-	st.sidebar.write('[Source Code](https://github.com/kimsammie/plagiarism)')
+	st.sidebar.write('[Source Code](https://github.com/kimsammie/Aragon_Discord_Metrics)')
