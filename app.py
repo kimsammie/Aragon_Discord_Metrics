@@ -89,14 +89,14 @@ def write():
 		# from nltk.corpus import stopwords
 	stop_words = stopwords.words('english')
 	stop_words.extend(
-		['from', 'subject',
+		[
 		 'you', 'me', 'guy', 'guys', 'im', 'us',
 		 'hi', 'hello', 'hey','thanks', 'thank', 'thx','yes', 'no', 'ohh', 'ha',
-		 'what', 'would', 'might', 'could', 'maybe','may', 'theres', 'do', 'does', 'done', 'be', 'know', 'good', 'go', 'get',
-		 'also','still', 'able', 'since', 'yet', 'it', 'many', 'some', 'rather', 'make', 'to', 'and', 'set', 'let', 'please', 'like',
-		 'try', 'trying', 'nice', 'think', 'see', 'easy', 'easily', 'lot','use', 'using', 'go', 'going', 'not', 'say', 'said',
-		 'want', 'seem', 'run', 'need', 'even', 'right', 'line', 'even',  'take', 'come','look', 'prob', 'one',  'feel', 'way', 'sure',
-		 'https', 'http', 'com', 'etc' , 'daos'
+		 'what', 'would', 'might', 'could', 'maybe','may', 'theres', 'there', 'here', 'do', 'does', 'done', 'be',
+		 'also','still', 'able', 'since', 'yet', 'it', 'many', 'some', 'rather', 'make', 'to', 'and', 'let', 'please', 'like','not', 'from',
+		 'try', 'trying', 'nice', 'think', 'thinking' 'see', 'seeing', 'easy', 'easily', 'lot','use', 'using', 'go', 'going', 'say', 'said','set',
+		 'want', 'seem', 'run', 'need', 'even', 'right', 'line', 'take', 'come','look', 'looking', 'prob', 'one',  'feel', 'way', 'sure','know', 'get',
+		 'https', 'http', 'com', 'etc' , 'daos', 'subject'
 		 ])
 
 	data = retrieve_messages1(channel_num)
@@ -297,7 +297,7 @@ def write():
 
 	st.write('topics:', topics)
 	st.write('fig:', fig)
-	st.write('axes:', axes)
+	# st.write('axes:', axes)
 
 	for i, ax in enumerate(axes.flatten()):
 		st.write('i:', i)
