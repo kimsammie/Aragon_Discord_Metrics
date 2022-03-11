@@ -35,7 +35,7 @@ def write():
 
 	<br><br/>
 	
-	Using topic modeling, we can extract the "hidden topics" from large volumes of messages in Aragon Discord channel. 
+	Using topic modeling, we can extract the "hidden topics" from large volumes of messages in Aragon Discord channels. 
 	Please see the most popular topics discussed for a given time period by first selecting the start date and end date for a channel of your interest.	
 	After that, try different number of topics (e.g., a higher number for a longer time period) until you see coherent topics (i.e., words in the topic support each other). 
 	
@@ -46,7 +46,7 @@ def write():
 	# below is authorization from my discord login
 
 	# st.sidebar.write('Choose a week')
-	star_date_ofweek = st.sidebar.date_input('Enter the start date (e.g., 2022-02-21)')
+	start_date_ofweek = st.sidebar.date_input('Enter the start date (e.g., 2022-02-21)')
 	end_date_ofweek = st.sidebar.date_input('Enter the end date (e.g., 2022-02-28)')
 	# u = dt.datetime.strptime(date_ofweek, "%Y-%m-%d").date()
 	# u = dt.datetime.strptime(date_ofweek, "%Y/%m/%d")
