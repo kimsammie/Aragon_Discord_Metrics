@@ -50,8 +50,7 @@ def write():
 	# st.sidebar.write('Choose a week')
 	start_date_ofweek = st.sidebar.date_input('Enter the start date (e.g., 2022/02/21)', value = dt.datetime.now()-dt.timedelta(days=7)) # datetime.date format
 	end_date_ofweek = st.sidebar.date_input('Enter the end date (e.g., 2022/02/28)', value = dt.datetime.now())
-	if start_date_ofweek > end_date_ofweek:
-		st.write('ERROR: Please choose the end date greater than the start date')
+
 	# start_date_ofweek = dt.datetime.strptime(start_date_ofweek, "%Y-%m-%d")
 	# end_date_ofweek = dt.datetime.strptime(end_date_ofweek, "%Y/%m/%d")
 	# d = dt.timedelta(days=7)
@@ -75,6 +74,9 @@ def write():
 
 	# st.sidebar.write('Number of Topics')
 	numberof_topics = st.sidebar.number_input('Enter the number of topics (2 to 10):', min_value=2, max_value=10, value=2, step=1)
+
+	if start_date_ofweek > end_date_ofweek:
+		st.write('**ERROR: Please choose the end date greater than the start date**')
 
 	def retrieve_messages1(channelid):
 		headers = {
