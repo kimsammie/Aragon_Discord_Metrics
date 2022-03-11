@@ -50,6 +50,8 @@ def write():
 	# st.sidebar.write('Choose a week')
 	start_date_ofweek = st.sidebar.date_input('Enter the start date (e.g., 2022/02/21)', value = dt.datetime.now()-dt.timedelta(days=7)) # datetime.date format
 	end_date_ofweek = st.sidebar.date_input('Enter the end date (e.g., 2022/02/28)', value = dt.datetime.now())
+	if start_date_ofweek > end_date_ofweek:
+		st.write('ERROR: Please choose the end date greater than the start date')
 	# start_date_ofweek = dt.datetime.strptime(start_date_ofweek, "%Y-%m-%d")
 	# end_date_ofweek = dt.datetime.strptime(end_date_ofweek, "%Y/%m/%d")
 	# d = dt.timedelta(days=7)
