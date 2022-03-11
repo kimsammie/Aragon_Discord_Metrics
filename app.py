@@ -36,9 +36,9 @@ def write():
 	<br><br/>
 	
 	Using topic modeling, we can extract the "hidden topics" from large volumes of messages in Aragon Discord channels. 
-	st.markdown("***")
+	
 	Please see the most popular topics discussed for a given time period by first selecting the start date and end date for a channel of your interest.	
-	st.markdown("***")
+	
 	After that, try different number of topics (e.g., a higher number for a longer time period) until you see coherent topics (i.e., words in the topic support each other). 
 	
 	"""
@@ -48,7 +48,7 @@ def write():
 	# below is authorization from my discord login
 
 	# st.sidebar.write('Choose a week')
-	start_date_ofweek = st.sidebar.date_input('Enter the start date (e.g., 2022/02/21)') # datetime.date format
+	start_date_ofweek = st.sidebar.date_input('Enter the start date (e.g., 2022/02/21)', value = dt.datetime.now()) # datetime.date format
 	end_date_ofweek = st.sidebar.date_input('Enter the end date (e.g., 2022/02/28)')
 	# start_date_ofweek = dt.datetime.strptime(start_date_ofweek, "%Y-%m-%d")
 	# end_date_ofweek = dt.datetime.strptime(end_date_ofweek, "%Y/%m/%d")
@@ -97,7 +97,7 @@ def write():
 	stop_words = stopwords.words('english')
 	stop_words.extend(
 		[
-		 'you', 'me', 'guy', 'guys', 'im', 'us',
+		 'you', 'me', 'guy', 'guys', 'im', 'us', 'someone',
 		 'hi', 'hello', 'hey','thanks', 'thank', 'thx','yes', 'no', 'ohh', 'ha',
 		 'what', 'would', 'might', 'could', 'maybe','may', 'theres', 'there', 'here', 'do', 'does', 'done', 'be',
 		 'also','still', 'able', 'since', 'yet', 'it', 'many', 'some', 'rather', 'make', 'to', 'and', 'let', 'please', 'like','not', 'from', 'ever',
