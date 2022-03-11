@@ -48,8 +48,8 @@ def write():
 	# below is authorization from my discord login
 
 	# st.sidebar.write('Choose a week')
-	start_date_ofweek = st.sidebar.date_input('Enter the start date (e.g., 2022/02/21)', value = dt.datetime.now()) # datetime.date format
-	end_date_ofweek = st.sidebar.date_input('Enter the end date (e.g., 2022/02/28)')
+	start_date_ofweek = st.sidebar.date_input('Enter the start date (e.g., 2022/02/21)', value = dt.datetime.now()-dt.timedelta(days=7)) # datetime.date format
+	end_date_ofweek = st.sidebar.date_input('Enter the end date (e.g., 2022/02/28)', value = dt.datetime.now())
 	# start_date_ofweek = dt.datetime.strptime(start_date_ofweek, "%Y-%m-%d")
 	# end_date_ofweek = dt.datetime.strptime(end_date_ofweek, "%Y/%m/%d")
 	# d = dt.timedelta(days=7)
