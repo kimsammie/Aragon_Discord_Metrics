@@ -35,15 +35,10 @@ def write():
 
 	<br><br/>
 	
-	TBD
+	Using topic modeling, we can extract the "hidden topics" from large volumes of messages in Aragon Discord channel. 
+	Please see the most popular topics discussed for a given time period by first selecting the start date and end date for a channel of your interest.	
+	After that, try different number of topics (e.g., a higher number for a longer time period) until you see coherent topics (i.e., words in the topic support each other). 
 	
-	"""
-	, unsafe_allow_html=True)
-
-	st.markdown(
-	"""
-	<br><br/>
-	Please see the most dominant topics discussed for the week by first selecting the end date of the week then the number of topics from the side bar 
 	"""
 	, unsafe_allow_html=True)
 
@@ -51,11 +46,12 @@ def write():
 	# below is authorization from my discord login
 
 	# st.sidebar.write('Choose a week')
-	end_date_ofweek = st.sidebar.date_input('Enter the end of date the week (e.g., 2022-02-21)')
+	star_date_ofweek = st.sidebar.date_input('Enter the start date (e.g., 2022-02-21)')
+	end_date_ofweek = st.sidebar.date_input('Enter the end date (e.g., 2022-02-28)')
 	# u = dt.datetime.strptime(date_ofweek, "%Y-%m-%d").date()
 	# u = dt.datetime.strptime(date_ofweek, "%Y/%m/%d")
-	d = dt.timedelta(days=7)
-	start_date_ofweek = end_date_ofweek - d
+	# d = dt.timedelta(days=7)
+	# start_date_ofweek = end_date_ofweek - d
 
 	# st.sidebar.write('Choose the Discord channel')
 	# selection = st.sidebar.selectbox('Choose the Discord channel', ['Option 1: General', 'Option 2: Intro', 'Option 3: Questions', 'Option 4: Support', 'Option 5: Bounty-Board'])
@@ -139,8 +135,8 @@ def write():
 
 	st.write('**Note: Earliest date available:', earliestdate)
 
-	st.write('Start date of the week:', start_date_ofweek)
-	st.write('End date of the week:', end_date_ofweek)
+	st.write('Start date:', start_date_ofweek)
+	st.write('End date:', end_date_ofweek)
 	st.write('Number of messages for the week:', len(df_1wk))
 
 	st.write('Number of Topics:', int(numberof_topics))
