@@ -16,3 +16,4 @@ datetime
 gensim
 spacy
 nltk
+transformers 
