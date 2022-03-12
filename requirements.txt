@@ -17,3 +17,4 @@ gensim
 spacy
 nltk
 transformers 
+textblob 
