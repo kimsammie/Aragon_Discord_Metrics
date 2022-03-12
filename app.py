@@ -25,10 +25,10 @@ from matplotlib import pyplot as plt
 from wordcloud import WordCloud
 import matplotlib.colors as mcolors
 # st.set_page_config(layout="wide")
-from transformers import pipeline
+# from transformers import pipeline
  
-# Set up the inference pipeline using a model from the 🤗 Hub
-sentiment_analysis = pipeline(model="finiteautomata/bertweet-base-sentiment-analysis")
+# # Set up the inference pipeline using a model from the 🤗 Hub
+# sentiment_analysis = pipeline(model="finiteautomata/bertweet-base-sentiment-analysis")
 
 def write():
 	st.title('Aragon Discord Channel Topics Discussed by the Community ')
