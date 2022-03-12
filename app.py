@@ -24,6 +24,9 @@ from nltk.stem import WordNetLemmatizer
 from matplotlib import pyplot as plt
 from wordcloud import WordCloud
 import matplotlib.colors as mcolors
+from textblob import TextBlob
+import altair as alt
+from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 # st.set_page_config(layout="wide")
 # from transformers import pipeline
  
