@@ -24,6 +24,10 @@ from nltk.stem import WordNetLemmatizer
 from matplotlib import pyplot as plt
 from wordcloud import WordCloud
 import matplotlib.colors as mcolors
+import subprocess
+cmd = ['python3','-m','textblob.download_corpora']
+subprocess.run(cmd)
+print("Working")
 # from textblob import TextBlob
 # import altair as alt
 # from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
