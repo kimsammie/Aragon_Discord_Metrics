@@ -341,7 +341,7 @@ def write():
 	original_sentence = []
 	token_sentiments = []
 
-	for sentence in test.content:
+	for sentence in df_1wk.content:
 		try:
 			sentiment = TextBlob(sentence).sentiment
 			token_sentiments = analyze_token_sentiment(sentence)
