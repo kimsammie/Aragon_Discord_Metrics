@@ -346,7 +346,7 @@ def write():
 		# st.write('df_1wk.content', df_1wk.content)
 		try:
 			sentiment = TextBlob(sentence).sentiment
-
+			st.write('sentiment', sentiment)
 			token_sentiments = analyze_token_sentiment(sentence)
 			st.write('token_sentiments', token_sentiments)
 			if sentiment.polarity > 0:
