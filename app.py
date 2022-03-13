@@ -348,7 +348,7 @@ def write():
 			sentiment = TextBlob(sentence).sentiment
 			st.write('sentiment', sentiment)
 			token_sentiments = analyze_token_sentiment(sentence)
-			st.write('token_sentiments', token_sentiments)
+			# st.write('token_sentiments', token_sentiments)
 			if sentiment.polarity > 0:
 				polarity.append(sentiment.polarity)
 				sentiment_sentence.append("Positive")
