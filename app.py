@@ -384,6 +384,7 @@ def write():
 	fig = plt.figure(figsize=(6, 6), dpi=100)
 	ax = plt.subplot(111)
 	sentiment_counts.plot.pie(ax=ax, autopct='%1.1f%%', startangle=270, fontsize=12, label="")
+	st.pyplot(fig)
 
 	st.write('Actual Messages:', df_1wk['content'])
 
