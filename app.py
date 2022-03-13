@@ -30,7 +30,9 @@ subprocess.run(cmd)
 print("Working")
 from textblob import TextBlob
 import altair as alt
-from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+# from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+from nltk.sentiment.vader import SentimentIntensityAnalyzer
+
 # st.set_page_config(layout="wide")
 # from transformers import pipeline
  
