@@ -24,6 +24,7 @@ from nltk.stem import WordNetLemmatizer
 from matplotlib import pyplot as plt
 from wordcloud import WordCloud
 import matplotlib.colors as mcolors
+# st.set_page_config(layout="wide")
 import subprocess
 cmd = ['python3','-m','textblob.download_corpora']
 subprocess.run(cmd)
@@ -33,11 +34,6 @@ import altair as alt
 # from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
-# st.set_page_config(layout="wide")
-# from transformers import pipeline
- 
-# # Set up the inference pipeline using a model from the 🤗 Hub
-# sentiment_analysis = pipeline(model="finiteautomata/bertweet-base-sentiment-analysis")
 
 def write():
 	st.title('Aragon Discord Channel Topics Discussed by the Community ')
@@ -154,7 +150,7 @@ def write():
 	df_1wk = df.loc[one_week]
 	num_msgs = len(df_1wk)
 
-	st.write('**Note: Earliest date available:', earliestdate)
+	st.write('**Note: the earliest date available:', earliestdate)
 
 	st.write('Start date:', start_date_ofweek)
 	st.write('End date:', end_date_ofweek)
@@ -171,7 +167,7 @@ def write():
 			sent = re.sub('\s+', ' ', sent)  # remove newline chars
 			sent = re.sub("\'", "", sent)  # remove single quotes
 			sent = gensim.utils.simple_preprocess(str(sent),
-							deacc=True)  # split the sentence into a list of words. deacc=True option removes punctuations
+												  deacc=True)  # split the sentence into a list of words. deacc=True option removes punctuations
 			sent = [lemmatizer.lemmatize(w) for w in sent]
 			yield (sent)
 	# Convert to list
@@ -226,17 +222,17 @@ def write():
 
 	# Build LDA model
 	lda_model = gensim.models.ldamodel.LdaModel(corpus=corpus,
-				id2word=id2word,
-				num_topics=int(numberof_topics),
-				random_state=100, # this serves as a seed (to repeat the training process)
-				update_every=1, # update the model every update_every chunksize chunks (essentially, this is for memory consumption optimization)
-				chunksize=10, # number of documents to consider at once (affects the memory consumption)
-				passes=10, # how many times the algorithm is supposed to pass over the whole corpus
-				alpha='symmetric', # `‘asymmetric’ and ‘auto’: the former uses a fixed normalized asymmetric 1.0/topicno prior, the latter learns an asymmetric prior directly from your data.
-				iterations=100,
-				per_word_topics=True) # setting this to True allows for extraction of the most likely topics given a word.
-				# The training process is set in such a way that every word will be assigned to a topic. Otherwise, words that are not indicative are going to be omitted.
-				# phi_value is another parameter that steers this process - it is a threshold for a word treated as indicative or not.
+													id2word=id2word,
+													num_topics=int(numberof_topics),
+													random_state=100, # this serves as a seed (to repeat the training process)
+													update_every=1, # update the model every update_every chunksize chunks (essentially, this is for memory consumption optimization)
+													chunksize=10, # number of documents to consider at once (affects the memory consumption)
+													passes=10, # how many times the algorithm is supposed to pass over the whole corpus
+													alpha='symmetric', # `‘asymmetric’ and ‘auto’: the former uses a fixed normalized asymmetric 1.0/topicno prior, the latter learns an asymmetric prior directly from your data.
+													iterations=100,
+													per_word_topics=True) # setting this to True allows for extraction of the most likely topics given a word.
+													# The training process is set in such a way that every word will be assigned to a topic. Otherwise, words that are not indicative are going to be omitted.
+													# phi_value is another parameter that steers this process - it is a threshold for a word treated as indicative or not.
 
 	pprint(lda_model.print_topics())  # The trained topics (keywords and weights)
 
@@ -337,59 +333,58 @@ def write():
 	plt.show()
 	st.pyplot(fig)
 
-	
 	test = pd.DataFrame(df_1wk['content'])
 
 	polarity = []
 	sentiment_sentence = []
 	subjectivity = []
-	original_sentence=[]
+	original_sentence = []
 	token_sentiments = []
 
 	for sentence in test.content:
-	    try:
-	      sentiment = TextBlob(sentence).sentiment
-	      token_sentiments = analyze_token_sentiment(sentence)
+		try:
+			sentiment = TextBlob(sentence).sentiment
+			token_sentiments = analyze_token_sentiment(sentence)
 
-	      if sentiment.polarity > 0:
-		polarity.append(sentiment.polarity)
-		sentiment_sentence.append("Positive")
-		subjectivity.append(sentiment.subjectivity)
-		original_sentence.append(sentence)
-		token_sentiments.append(token_sentiments)
+			if sentiment.polarity > 0:
+				polarity.append(sentiment.polarity)
+				sentiment_sentence.append("Positive")
+				subjectivity.append(sentiment.subjectivity)
+				original_sentence.append(sentence)
+				token_sentiments.append(token_sentiments)
 
-	      elif sentiment.polarity < 0:
-		polarity.append(sentiment.polarity)
-		sentiment_sentence.append("Negative")
-		subjectivity.append(sentiment.subjectivity)
-		original_sentence.append(sentence)
-		token_sentiments.append(token_sentiments)        
+			elif sentiment.polarity < 0:
+				polarity.append(sentiment.polarity)
+				sentiment_sentence.append("Negative")
+				subjectivity.append(sentiment.subjectivity)
+				original_sentence.append(sentence)
+				token_sentiments.append(token_sentiments)
 
-	      else:
-		polarity.append(sentiment.polarity)
-		sentiment_sentence.append("Neutral")
-		subjectivity.append(sentiment.subjectivity)
-		original_sentence.append(sentence)
-		token_sentiments.append(token_sentiments)  
+			else:
+				polarity.append(sentiment.polarity)
+				sentiment_sentence.append("Neutral")
+				subjectivity.append(sentiment.subjectivity)
+				original_sentence.append(sentence)
+				token_sentiments.append(token_sentiments)
 
-	    except:
-	      pass
+		except:
+			pass
 
-	sentiment_df_test= pd.DataFrame()
-	sentiment_df_test['polarity']=polarity
-	sentiment_df_test['sentiment']=sentiment_sentence
-	sentiment_df_test['original_sentence']=original_sentence
+	sentiment_df_test = pd.DataFrame()
+	sentiment_df_test['polarity'] = polarity
+	sentiment_df_test['sentiment'] = sentiment_sentence
+	sentiment_df_test['original_sentence'] = original_sentence
 	# sentiment_df_test['subjectivity']=subjectivity
 	# sentiment_df_test['token_sentiments']=token_sentiments
-	
+
 	sentiment_counts = sentiment_df_test.groupby(['sentiment']).size()
-	st.write('Sentiment Counts:', sentiment_counts)   
+	st.write('Sentiment Counts:', sentiment_counts)
 
 	# visualize the sentiments
-	fig = plt.figure(figsize=(6,6), dpi=100)
+	fig = plt.figure(figsize=(6, 6), dpi=100)
 	ax = plt.subplot(111)
 	sentiment_counts.plot.pie(ax=ax, autopct='%1.1f%%', startangle=270, fontsize=12, label="")
-	
+
 	st.write('Actual Messages:', df_1wk['content'])
 
 	# st.table('Actual Messages:', df_1wk['content'])
