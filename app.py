@@ -334,7 +334,7 @@ def write():
 	st.pyplot(fig)
 
 	test = pd.DataFrame(df_1wk['content'])
-	st.write('pd.DataFrame(df_1wk['content']:', test)
+	st.write('pd.DataFrame df_1wk:', test)
 
 	polarity = []
 	sentiment_sentence = []
