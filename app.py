@@ -334,6 +334,7 @@ def write():
 	st.pyplot(fig)
 
 	test = pd.DataFrame(df_1wk['content'])
+	st.write('pd.DataFrame(df_1wk['content']:', test)
 
 	polarity = []
 	sentiment_sentence = []
@@ -342,6 +343,8 @@ def write():
 	token_sentiments = []
 
 	for sentence in df_1wk.content:
+		st.write('sentence', sentence)
+		st.write('df_1wk.content', df_1wk.content)
 		try:
 			sentiment = TextBlob(sentence).sentiment
 			token_sentiments = analyze_token_sentiment(sentence)
