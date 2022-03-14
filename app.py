@@ -30,7 +30,7 @@ import matplotlib.colors as mcolors
 # subprocess.run(cmd)
 # print("Working")
 from textblob import TextBlob
-import altair as alt
+# import altair as alt - for charts
 # from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
@@ -342,33 +342,33 @@ def write():
 	token_sentiments = []
 
 	for sentence in df_1wk.content:
-		# st.write('sentence', sentence)
+		st.write('sentence', sentence)
 		# st.write('df_1wk.content', df_1wk.content)
 		try:
 			sentiment = TextBlob(sentence).sentiment
-			# st.write('sentiment', sentiment)
-			token_sentiments = analyze_token_sentiment(sentence)
+			st.write('sentiment', sentiment)
+			# token_sentiments = analyze_token_sentiment(sentence)
 			st.write('token_sentiments', token_sentiments)
 			if sentiment.polarity > 0:
 				polarity.append(sentiment.polarity)
 				sentiment_sentence.append("Positive")
 				subjectivity.append(sentiment.subjectivity)
 				original_sentence.append(sentence)
-				token_sentiments.append(token_sentiments)
+				# token_sentiments.append(token_sentiments)
 
 			elif sentiment.polarity < 0:
 				polarity.append(sentiment.polarity)
 				sentiment_sentence.append("Negative")
 				subjectivity.append(sentiment.subjectivity)
 				original_sentence.append(sentence)
-				token_sentiments.append(token_sentiments)
+				# token_sentiments.append(token_sentiments)
 
 			else:
 				polarity.append(sentiment.polarity)
 				sentiment_sentence.append("Neutral")
 				subjectivity.append(sentiment.subjectivity)
 				original_sentence.append(sentence)
-				token_sentiments.append(token_sentiments)
+				# token_sentiments.append(token_sentiments)
 
 		except:
 			pass
