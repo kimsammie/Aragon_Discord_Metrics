@@ -372,12 +372,12 @@ def write():
 
 		except:
 			pass
-	st.write('sentiment_sentence', sentiment_sentence)
+	# st.write('sentiment_sentence', sentiment_sentence)
 	sentiment_df_test = pd.DataFrame()
 	sentiment_df_test['polarity'] = polarity
 	sentiment_df_test['sentiment'] = sentiment_sentence
 	sentiment_df_test['original_sentence'] = original_sentence
-	st.write('sentiment_df_test:', sentiment_df_test)
+
 	# sentiment_df_test['subjectivity']=subjectivity
 	# sentiment_df_test['token_sentiments']=token_sentiments
 
@@ -390,8 +390,8 @@ def write():
 	sentiment_counts.plot.pie(ax=ax, autopct='%1.1f%%', startangle=270, fontsize=12, label="")
 	st.pyplot(fig)
 
-	st.write('Actual Messages:', df_1wk['content'])
-
+	# st.write('Actual Messages:', df_1wk['content'])
+	st.write('sentiment_df_test:', sentiment_df_test)
 	# st.table('Actual Messages:', df_1wk['content'])
 
 	# st.dataframe(df_1wk['content'])
