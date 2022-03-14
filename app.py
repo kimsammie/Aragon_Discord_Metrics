@@ -387,7 +387,7 @@ def write():
 	st.write('Sentiment Counts:', sentiment_counts)
 
 	# visualize the sentiments
-	fig = plt.figure(figsize=(6, 6), dpi=100)
+	fig = plt.figure(figsize=(5, 5), dpi=100)
 	ax = plt.subplot(111)
 	sentiment_counts.plot.pie(ax=ax, autopct='%1.1f%%', startangle=270, fontsize=12, label="")
 	st.pyplot(fig)
