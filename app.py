@@ -50,6 +50,8 @@ def write():
 	
 	After that, try different number of topics (e.g., a higher number for a longer time period) until you see coherent topics (i.e., words in the topic support each other). 
 	
+	At the bottom, please also check out the overall sentiment found in the messages for the chosen time period. 
+	
 	"""
 	, unsafe_allow_html=True)
 
@@ -391,7 +393,7 @@ def write():
 	st.pyplot(fig)
 
 	# st.write('Actual Messages:', df_1wk['content'])
-	st.write('sentiment_df_test:', sentiment_df_test)
+	st.write('Sentiment for the Actual Messages:', sentiment_df_test[['sentiment_sentence','original_sentence']])
 	# st.table('Actual Messages:', df_1wk['content'])
 
 	# st.dataframe(df_1wk['content'])
