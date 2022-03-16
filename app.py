@@ -24,11 +24,11 @@ from nltk.stem import WordNetLemmatizer
 from matplotlib import pyplot as plt
 from wordcloud import WordCloud
 import matplotlib.colors as mcolors
-# st.set_page_config(layout="wide")
-# import subprocess
-# cmd = ['python3','-m','textblob.download_corpora']
-# subprocess.run(cmd)
-# print("Working")
+st.set_page_config(layout="wide")
+import subprocess
+cmd = ['python3','-m','textblob.download_corpora']
+subprocess.run(cmd)
+print("Working")
 from textblob import TextBlob
 # import altair as alt - for charts
 # from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
