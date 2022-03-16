@@ -28,7 +28,6 @@ st.set_page_config(layout="wide")
 import subprocess
 cmd = ['python3','-m','textblob.download_corpora']
 subprocess.run(cmd)
-print("Working")
 from textblob import TextBlob
 # import altair as alt - for charts
 # from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
@@ -387,7 +386,7 @@ def write():
 	st.write('Sentiment Counts:', sentiment_counts)
 
 	# visualize the sentiments
-	fig = plt.figure(figsize=(5, 5), dpi=100)
+	fig = plt.figure(figsize=(6,6), dpi=100)
 	ax = plt.subplot(111)
 	sentiment_counts.plot.pie(ax=ax, autopct='%1.1f%%', startangle=270, fontsize=12, label="")
 	st.pyplot(fig)
