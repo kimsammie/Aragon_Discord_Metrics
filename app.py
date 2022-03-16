@@ -20,11 +20,7 @@ from nltk.stem import WordNetLemmatizer
 from matplotlib import pyplot as plt
 from wordcloud import WordCloud
 import matplotlib.colors as mcolors
-# import subprocess
-# cmd = ['python3','-m','textblob.download_corpora']
-# subprocess.run(cmd)
 from textblob import TextBlob
-# import altair as alt - for charts
 
 
 def write():
@@ -384,7 +380,7 @@ def write():
 	st.pyplot(fig)
 
 	# st.write('Sentiment for the Actual Messages:', sentiment_df_test[['sentiment','original_sentence']])
-	st.table('Actual Messages:', sentiment_df_test['original_sentence'])
+	st.write('Actual Messages:', df_1wk['content'])
 
 	# st.dataframe(df_1wk['content'])
 
