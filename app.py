@@ -30,8 +30,8 @@ cmd = ['python3','-m','textblob.download_corpora']
 subprocess.run(cmd)
 from textblob import TextBlob
 import altair as alt - for charts
-from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
-from nltk.sentiment.vader import SentimentIntensityAnalyzer
+# from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+# from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
 
 def write():
