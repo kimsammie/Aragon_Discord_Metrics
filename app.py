@@ -384,7 +384,7 @@ def write():
 	st.pyplot(fig)
 
 	# st.write('Sentiment for the Actual Messages:', sentiment_df_test[['sentiment','original_sentence']])
-	st.table('Actual Messages:', df_1wk['content'])
+	st.table('Actual Messages:', sentiment_df_test['original_sentence'])
 
 	# st.dataframe(df_1wk['content'])
 
