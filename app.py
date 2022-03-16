@@ -5,10 +5,6 @@ import json
 import requests
 import datetime as dt
 import re
-import spacy
-from spacy.lang.en.examples import sentences
-# spacy.download('en_core_web_sm')
-# download en_core_web_sm
 import gensim
 import gensim.corpora as corpora
 from gensim.utils import simple_preprocess
@@ -24,19 +20,15 @@ from nltk.stem import WordNetLemmatizer
 from matplotlib import pyplot as plt
 from wordcloud import WordCloud
 import matplotlib.colors as mcolors
-st.set_page_config(layout="wide")
 import subprocess
 cmd = ['python3','-m','textblob.download_corpora']
 subprocess.run(cmd)
 from textblob import TextBlob
 import altair as alt - for charts
-# from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
-# from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
 
 def write():
 	st.title('Aragon Discord Channel Topics Discussed by the Community ')
-	# st.subheader('by [Sammie Kim](https://www.linkedin.com/in/sammiekim/)')
 
 	st.markdown(
 	"""
