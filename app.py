@@ -29,8 +29,8 @@ import subprocess
 cmd = ['python3','-m','textblob.download_corpora']
 subprocess.run(cmd)
 from textblob import TextBlob
-# import altair as alt - for charts
-# from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+import altair as alt - for charts
+from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
 
@@ -392,7 +392,7 @@ def write():
 	st.pyplot(fig)
 
 	# st.write('Sentiment for the Actual Messages:', sentiment_df_test[['sentiment','original_sentence']])
-	# st.table('Actual Messages:', df_1wk['content'])
+	st.table('Actual Messages:', df_1wk['content'])
 
 	# st.dataframe(df_1wk['content'])
 
