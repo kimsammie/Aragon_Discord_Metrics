@@ -90,7 +90,8 @@ def write():
 
 	def retrieve_messages2(channelid, messageid):
 		headers = {
-			'authorization': 'mfa.rzKIytp3I__V7txFr0cU_5VoI-pwaqlEBD0MAj3raEB5PK-imOUBFk5UnydY9Lf2eRkZAQMUfpIgPa9Mueku'
+# 			'authorization': 'mfa.rzKIytp3I__V7txFr0cU_5VoI-pwaqlEBD0MAj3raEB5PK-imOUBFk5UnydY9Lf2eRkZAQMUfpIgPa9Mueku'
+			'authorization': 'MjU0MzIwMDMxNzUwNTUzNjEw.GhUU6J.1JiDHXqv0sujMit899kNyC7yt5HqR4TnINxnZA'
 		}
 		r = requests.get(f'https://discord.com/api/v9/channels/{channelid}/messages?before={messageid}',
 						 headers=headers)
