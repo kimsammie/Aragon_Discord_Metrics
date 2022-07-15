@@ -80,7 +80,8 @@ def write():
 
 	def retrieve_messages1(channelid):
 		headers = {
-			'authorization': 'mfa.rzKIytp3I__V7txFr0cU_5VoI-pwaqlEBD0MAj3raEB5PK-imOUBFk5UnydY9Lf2eRkZAQMUfpIgPa9Mueku'
+# 			'authorization': 'mfa.rzKIytp3I__V7txFr0cU_5VoI-pwaqlEBD0MAj3raEB5PK-imOUBFk5UnydY9Lf2eRkZAQMUfpIgPa9Mueku'
+			'authorization': 'MjU0MzIwMDMxNzUwNTUzNjEw.GhUU6J.1JiDHXqv0sujMit899kNyC7yt5HqR4TnINxnZA'
 		}
 		# payload={'page':2, 'count':100} # this with 'params=payload' doesn't work
 		r = requests.get(f'https://discord.com/api/v9/channels/{channelid}/messages?limit=100', headers=headers)
